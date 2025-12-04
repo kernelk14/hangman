@@ -3,7 +3,7 @@ package hangman_isaias_samson_hugo;
 import java.util.Scanner;
 
 class Level {
-    String word = "bilat".toUpperCase();
+    String word = "hello".toUpperCase();
     int trials;
 
     public void katawan(int trials){
@@ -70,7 +70,7 @@ class Game {
         }
         
         if (ph.equals(l.word)) {
-            System.out.println("Congrats bitch");
+            System.out.println("Congrats! The correct answer is " + l.word);
             System.exit(0);
         }
         
@@ -94,7 +94,7 @@ class Game {
         }
         
         for (int j = 0; j < l.word.length(); j++) {
-            if (l.word.charAt(j) == let) {
+            if (l.word.charAt(j) == let && placeholder_arr[j] == '_') {
                 placeholder_arr[j] = l.word.charAt(j);
                 ph = new String(placeholder_arr);
                 mainGame(l, ph);

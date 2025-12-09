@@ -3,13 +3,19 @@ package hangman_isaias_samson_hugo;
 import java.util.Scanner;
 
 class Level {
+    // This is the word to be guessed.
     String word = "hello".toUpperCase();
+    String hint = "The word you say when you meet a person.";
+    // Defining trials and tries.
     int trials;
+    int tries;
 
+    
+    // For the design and illustration
     public void katawan(int trials){
         if(trials == 6){
             System.out.println("+__+");
-             System.out.println("  |");
+            System.out.println("  |");
         }
         else if(trials == 5){
             System.out.println("+__+");
@@ -50,11 +56,14 @@ class Level {
         }
         
     }
+    
+    // The Level Constructor.
     public Level(int trials) {
         this.trials = trials;
     }
 }
 
+// The main Game class.
 class Game {
 
     char[] placeholder_arr;
@@ -62,10 +71,12 @@ class Game {
     String letter;
     int tries;
     
+    // The main game function.
     public void mainGame(Level l, String ph) {
-        
+                
         if (l.trials == 0) {
-            System.out.println("GAME OVER BITCH");
+            System.out.printf("Tries: %d\n", this.tries);
+            System.out.println("GAME OVER! The answer is " + l.word);
             System.exit(0);
         }
         
@@ -80,6 +91,9 @@ class Game {
             System.out.printf("%s ", this.placeholder_arr[i]);
         }
         System.out.println();
+        System.out.println("You should NOT exceed 7 trials or you will lose the game.");
+        if (this.tries >= 1) System.out.printf("Hint: %s\n", l.hint);
+        System.out.printf("Tries: %d\n", this.tries);
         System.out.print("Enter the Letter: ");
         letter = input.next().toUpperCase();
 
@@ -98,6 +112,7 @@ class Game {
                 placeholder_arr[j] = l.word.charAt(j);
                 ph = new String(placeholder_arr);
                 mainGame(l, ph);
+                this.tries++;
             }
         }
         

@@ -108,12 +108,19 @@ class Game {
         }
         
         for (int j = 0; j < l.word.length(); j++) {
-            if (l.word.charAt(j) == let && placeholder_arr[j] == '_') {
-                placeholder_arr[j] = l.word.charAt(j);
-                ph = new String(placeholder_arr);
-                mainGame(l, ph);
-                this.tries++;
-            }
+            if (l.word.charAt(j) == let ) {
+                if (placeholder_arr[j] == '_') {
+                    placeholder_arr[j] = l.word.charAt(j);
+                    ph = new String(placeholder_arr);
+                    mainGame(l, ph);
+                    this.tries++;
+                } else {
+                    l.trials--;
+                    l.katawan(l.trials);
+                    this.tries++;
+                    mainGame(l, ph);
+                }
+            } 
         }
         
     }

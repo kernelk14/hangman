@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 class Level {
     // This is the word to be guessed.
-    String word = "primo".toUpperCase();
-    String hint = "Pinakapogi sa room";
+    String word = "Trampoline".toUpperCase();
+    String hint = "a stretchy and bouncy surface that dares you to jump higher.";
     // Defining trials and tries.
     int trials;
     int tries;
@@ -93,7 +93,7 @@ class Game {
         System.out.println();
         System.out.println("You should NOT exceed 7 trials or you will lose the game.");
         if (this.tries >= 1) System.out.printf("Hint: %s\n", l.hint);
-        System.out.printf("Tries: %d\n", this.tries);
+        System.out.printf("\nTries: %d\n", this.tries);
         System.out.print("Enter the Letter: ");
         letter = input.next().toUpperCase();
 
@@ -119,6 +119,13 @@ class Game {
     }
     
     public void init() {
+        
+        System.out.println(" _   _    _    _   _  ____ __  __    _    _   _ \n" +
+        "| | | |  / \\  | \\ | |/ ___|  \\/  |  / \\  | \\ | |\n" +
+        "| |_| | / _ \\ |  \\| | |  _| |\\/| | / _ \\ |  \\| |\n" +
+        "|  _  |/ ___ \\| |\\  | |_| | |  | |/ ___ \\| |\\  |\n" +
+        "|_| |_/_/   \\_\\_| \\_|\\____|_|  |_/_/   \\_\\_| \\_|");
+        
         Level l = new Level(7);
         
         this.placeholder_arr = new char[l.word.length()];

@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 class Level {
     // This is the word to be guessed.
-    String word = "hello".toUpperCase();
-    String hint = "The word you say when you meet a person.";
+    String word = "primo".toUpperCase();
+    String hint = "Pinakapogi sa room";
     // Defining trials and tries.
     int trials;
     int tries;

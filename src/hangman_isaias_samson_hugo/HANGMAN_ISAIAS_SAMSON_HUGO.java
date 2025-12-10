@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 class Level {
     // This is the word to be guessed.
-    String word = "Trampoline".toUpperCase();
-    String hint = "a stretchy and bouncy surface that dares you to jump higher.";
+    String word = "Malunggay".toUpperCase();
+    String hint = "Meron nito sa pandesal. Kulay green. Tag dos ra.";
     // Defining trials and tries.
     int trials;
     int tries;
@@ -92,7 +92,7 @@ class Game {
         }
         System.out.println();
         System.out.println("You should NOT exceed 7 trials or you will lose the game.");
-        if (this.tries >= 1) System.out.printf("Hint: %s\n", l.hint);
+        System.out.printf("Hint: %s\n", l.hint);
         System.out.printf("\nTries: %d\n", this.tries);
         System.out.print("Enter the Letter: ");
         letter = input.next().toUpperCase();
@@ -108,19 +108,21 @@ class Game {
         }
         
         for (int j = 0; j < l.word.length(); j++) {
-            if (l.word.charAt(j) == let ) {
-                if (placeholder_arr[j] == '_') {
-                    placeholder_arr[j] = l.word.charAt(j);
-                    ph = new String(placeholder_arr);
-                    mainGame(l, ph);
-                    this.tries++;
-                } else {
-                    l.trials--;
-                    l.katawan(l.trials);
-                    this.tries++;
-                    mainGame(l, ph);
-                }
+            if (l.word.charAt(j) == let && placeholder_arr[j] == '_') {
+                placeholder_arr[j] = l.word.charAt(j);
+                ph = new String(placeholder_arr);
+                mainGame(l, ph);
+                this.tries++;
             } 
+            
+            // YOU NEED THIS SOMEDAY.
+            /* else {
+                l.trials--;
+                l.katawan(l.trials);
+                this.tries++;
+                mainGame(l, ph);
+            } */
+                    
         }
         
     }
